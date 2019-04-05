@@ -1,0 +1,24 @@
+@foo:
+param  x.0
+param  y.0
+param  z.0
+ int a.0
+ int b.0
+b.0 = call foo 2 3 b.0
+a.0 = call foo a.0 b.0 2
+t.0 = a.0 + b.0
+a.0 = t.0
+return
+@main:
+ int a.1
+t.1 = a.1 gt 0
+if neq t.1 1 goto L~0
+t.2 = a.1 + 1
+goto L~0
+a.1 = t.2
+L~0:
+call foo a.1 a.1 a.1
+a.0 = call foo a.0 b.0 2
+scan a.0
+prnt a.0
+return a.0
